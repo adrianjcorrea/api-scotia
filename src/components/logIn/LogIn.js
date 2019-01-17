@@ -21,7 +21,6 @@ render(){
     <div className="A1">
        <article >
          <main>
-          <form>
            <div>
             <fieldset className="Log">
               <legend>Log In</legend>
@@ -49,7 +48,6 @@ render(){
               </div>
             </fieldset>
            </div>
-          </form>
          </main>
        </article>
     </div>
