@@ -14,11 +14,35 @@ constructor(props){
       logInPassword: ""
    }
  }
- 
+
 //we add our render method and our return for content to be displayed on app.
 render(){
   return(
-
+    <div>
+       <article>
+         <main>
+          <div>
+            <fieldset id="Log-In">
+              <legend>Log In</legend>
+              <div>
+                <label htmlFor="email-address">Email : </label>
+                <input type="email" name="email-address" id="email-address" />
+              </div>
+              <div>
+                <label htmlFor="password">Password : </label>
+                <input type="password" name="password" id="password" />
+              </div>
+              <div>
+                <input type="submit" value="LogIn" />
+              </div>
+              <div>
+                <input type="submit" value="REGISTER" />
+              </div>
+            </fieldset>
+          </div>
+         </main>
+       </article>
+    </div>
   );
  }
 }
