@@ -19,10 +19,10 @@ class App extends Component {
   //creating a function to be able to use my buttons to reroute. !!!testing tho!!!
   onRouteChange = (route) => {
     //Route property is in an object it need to be wrapped in curly brackets.
-    //If its on Log in then false will display logIn and register in Nav.
+    //If its on Login then false will display logIn and register in Nav.
     if(route === 'logIn'){
       this.setState({isSignedIn: false});
-      //But if its home then it will display logOut on nav.
+      //But if its welcome then it will display logOut on nav.
     }else if(route === 'welcome'){
       this.setState({isSignedIn: true});
     }

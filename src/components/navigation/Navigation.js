@@ -14,7 +14,7 @@ const Navigation = ({onRouteChange, isSignedIn }) => {
       onClick={() => onRouteChange('login')}
       className="App-link"
       href="login">
-       Sign Out
+        LogOut
       </a>
    </nav>
   );
@@ -26,7 +26,7 @@ const Navigation = ({onRouteChange, isSignedIn }) => {
       onClick={() => onRouteChange('login')}
       className="App-link"
       href="login">
-       Sign Out
+       LogIn
       </a>
       {/*changed register to p tag due to with a wasnt letting me go to register form*/}
        <p
