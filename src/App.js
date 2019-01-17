@@ -22,8 +22,18 @@ class App extends Component {
                 <fieldset id="Log-In">
                   <legend>Log In</legend>
                   <div>
-                    <label htmlFor="email-address">Email</label>
+                    <label htmlFor="email-address">Email : </label>
                     <input type="email" name="email-address" id="email-address" />
+                  </div>
+                  <div>
+                    <label htmlFor="password">Password : </label>
+                    <input type="password" name="password" id="password" />
+                  </div>
+                  <div>
+                    <input type="submit" value="LogIn" />
+                  </div>
+                  <div>
+                    <input type="submit" value="REGISTER" />
                   </div>
                 </fieldset>
               </div>
