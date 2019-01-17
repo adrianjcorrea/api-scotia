@@ -9,14 +9,21 @@ class App extends Component {
   constructor(){
      super();
      this.state = {
+  //Created a route state to keep track on were im at in my app, We want it to start on our logIn page.
+       route: 'login'
     }
   }
   render() {
     return (
       <div className="App-header">
          < Navigation />
-           < LogIn />
-        {/* < Register />*/}
+         {/*Routing with conditionals meaning
+          if route equals login return login form else register form.*/}
+         {this.state.route === 'login'
+         ? < LogIn />
+         : < Register />
+         }
+
       </div>
     );
   }

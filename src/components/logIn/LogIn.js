@@ -22,7 +22,7 @@ render(){
        <article className="LogIn" >
          <main>
           <div>
-            <fieldset >
+            <fieldset className="Log">
               <legend>Log In</legend>
               <div>
                 <label htmlFor="email-address">Email : </label>

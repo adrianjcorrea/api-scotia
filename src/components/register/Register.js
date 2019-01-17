@@ -19,8 +19,8 @@ constructor(props){
 render(){
   return(
     <div>
-       <article className="Register">
-         <main>
+       <article className="Register" >
+         <main className="field2">
           <div>
             <fieldset >
               <legend>REGISTER </legend>
