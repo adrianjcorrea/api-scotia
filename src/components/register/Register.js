@@ -18,7 +18,13 @@ constructor(props){
 //we add our render method and our return for content to be displayed on app.
 render(){
   return(
-
+    <div>
+      <article>
+        <main>
+        <legend>Log-In</legend>
+        </main>
+      <article>
+    </div>
   );
  }
 }
