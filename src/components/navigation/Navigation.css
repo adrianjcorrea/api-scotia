@@ -1,9 +1,13 @@
 .App-link {
-  color: #61dafb;
+  color: black;
 }
 
-a {
+a{
  margin-top: 100px;
  margin-right: 10px;
  margin-left: 10px;
+}
+p{
+  text-decoration: underline;
+  cursor:pointer;
 }

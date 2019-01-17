@@ -1,10 +1,13 @@
+
 article{
   text-align: center;
 }
+
 .Log{
   background-color: rgba(0,0,60,0.2);
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: 150px;
+  margin-right: 150px;
+
 }
 
 .B1, .B2{

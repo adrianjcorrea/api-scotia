@@ -18,7 +18,7 @@ constructor(props){
 //we add our render method and our return for content to be displayed on app.
 render(){
   return(
-    <div>
+    <div className="A1">
        <article >
          <main>
           <form>
@@ -45,7 +45,7 @@ render(){
                  onClick={() => this.props.onRouteChange('register')}
                  className="B2"
                  type="submit"
-                 value="REGISTER" />
+                 value="register" />
               </div>
             </fieldset>
            </div>
