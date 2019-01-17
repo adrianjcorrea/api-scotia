@@ -43,7 +43,11 @@ render(){
                 <input type="password" name="password" id="password" />
               </div>
               <div>
-                <input type="submit" value="REGISTER" />
+                <input
+                 onClick={() => this.props.onRouteChange('login')}
+                 className="B2"
+                 type="submit"
+                 value="REGISTER" />
               </div>
             </fieldset>
           </div>

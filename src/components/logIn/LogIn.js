@@ -19,9 +19,10 @@ constructor(props){
 render(){
   return(
     <div>
-       <article className="LogIn" >
+       <article >
          <main>
-          <div>
+          <form>
+           <div>
             <fieldset className="Log">
               <legend>Log In</legend>
               <div>
@@ -33,13 +34,22 @@ render(){
                 <input type="password" name="password" id="password" />
               </div>
               <div>
-                <input type="submit" value="LogIn" />
+                <input
+                 className="B1"
+                 onClick={() => this.props.onRouteChange('welcome')}
+                 type="submit"
+                 value="LogIn" />
               </div>
               <div>
-                <input type="submit" value="REGISTER" />
+                <input
+                 onClick={() => this.props.onRouteChange('register')}
+                 className="B2"
+                 type="submit"
+                 value="REGISTER" />
               </div>
             </fieldset>
-          </div>
+           </div>
+          </form>
          </main>
        </article>
     </div>

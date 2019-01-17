@@ -15,24 +15,28 @@ class App extends Component {
     }
   }
   //creating a function to be able to use my buttons to reroute. !!!testing tho!!!
-  onRouteChange = () => {
-    //setting state to original page component.
+  onRouteChange = (route) => {
+    //setting state to reasigned route
     //Route property is in an object it need to be wrapped in curly brackets.
-    //this.set.state = ({'home'});
+    this.setState({route: route});
   }
   render() {
     return (
       <div className="App-header">
-         < Navigation />
-         < Welcome />
-         {/*Routing with conditionals meaning
-          if route equals login return login form else register form.
-         {this.state.route === 'login'
-         ? < LogIn onRouteChange={this.onRouteChange} />
-         : < Register />
-         }*/}
-
-      </div>
+         < Navigation onRouteChange={this.onRouteChange} />
+         {/* !!!!Routing with conditionals!!!!
+           If routing equals welcome return Welcome component*/}
+          {/* Else if routing equals login return logIn component */}
+            {/* Else return Register component */}
+         { this.state.route === 'welcome'
+           ? < Welcome />
+           :(
+             this.state.route === 'login'
+             ? < LogIn onRouteChange={this.onRouteChange}/>
+             : < Register onRouteChange={this.onRouteChange} />
+            )
+          }
+       </div>
     );
   }
 }

@@ -1,9 +1,12 @@
+article{
+  text-align: center;
+}
 .Log{
   background-color: rgba(0,0,60,0.2);
   margin-left: 200px;
   margin-right: 200px;
 }
 
-.LogIn{
-  text-align: center;
+.B1, .B2{
+  cursor:pointer;
 }
