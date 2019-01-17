@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './css/App.css';
 import Navigation from './components/navigation/Navigation.js';
 import LogIn from './components/logIn/LogIn.js';
+import Register from './components/register/Register.js';
 
 class App extends Component {
   constructor(){
@@ -14,8 +15,8 @@ class App extends Component {
     return (
       <div className="App-header">
          < Navigation />
-         {/*< Register />*/}
-        < LogIn />
+         < Register />
+      {/*  < LogIn />*/}
       </div>
     );
   }

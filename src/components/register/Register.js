@@ -21,9 +21,9 @@ render(){
     <div>
       <article>
         <main>
-        <legend>Log-In</legend>
+        <legend>Register</legend>
         </main>
-      <article>
+      </article>
     </div>
   );
  }
