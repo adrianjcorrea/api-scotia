@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './logIn.css';
 //accentialy the same as Register just some minor changes.
 //since this component has a state therefore making it a smart component.
 class LogIn extends Component{
@@ -19,14 +19,14 @@ constructor(props){
 render(){
   return(
     <div>
-       <article>
+       <article className="LogIn" >
          <main>
           <div>
-            <fieldset id="Log-In">
+            <fieldset >
               <legend>Log In</legend>
               <div>
                 <label htmlFor="email-address">Email : </label>
-                <input type="email" name="email-address" id="email-address" />
+                <input type="email" name="email" id="email-address" />
               </div>
               <div>
                 <label htmlFor="password">Password : </label>

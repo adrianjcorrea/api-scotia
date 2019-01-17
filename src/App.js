@@ -15,8 +15,8 @@ class App extends Component {
     return (
       <div className="App-header">
          < Navigation />
-         < Register />
-      {/*  < LogIn />*/}
+           < LogIn />
+        {/* < Register />*/}
       </div>
     );
   }
