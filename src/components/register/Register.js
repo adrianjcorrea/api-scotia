@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './register.css';
 //since this component has a state therefore making it a smart component.
 class Register extends Component{
 //addind the constructor and super functions.
@@ -19,24 +19,25 @@ constructor(props){
 render(){
   return(
     <div>
-       <article>
+       <article className="Register">
          <main>
           <div>
-            <fieldset id="register">
+            <fieldset >
               <legend>REGISTER </legend>
               <legend>HERE</legend>
               <div>
+                <label htmlFor="email-address">Email : </label>
+                <input type="email" name="email" id="email-address" />
+              </div>
+              <div>
                 <label htmlFor="first-name">First Name : </label>
-                <input type="first-name" name="first-name" id="first-name" />
+                <input type="first-name" name="first-name" id="first" />
               </div>
               <div>
                 <label htmlFor="last name">Last Name : </label>
-                <input type="last name" name="last name" id="last name" />
+                <input type="last-name" name="last-name" id="last" />
               </div>
-              <div>
-                <label htmlFor="email-address">Email : </label>
-                <input type="email" name="email-address" id="email-address" />
-              </div>
+
               <div>
                 <label htmlFor="password">Password : </label>
                 <input type="password" name="password" id="password" />

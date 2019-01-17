@@ -1,0 +1,15 @@
+.Register{
+  text-align: center;
+}
+
+#email-address{
+  margin-right: -53px;
+}
+
+#last{
+  margin-right: -2px;
+}
+
+#password{
+  margin-right: -11px;
+}
