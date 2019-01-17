@@ -19,11 +19,35 @@ constructor(props){
 render(){
   return(
     <div>
-      <article>
-        <main>
-        <legend>Register</legend>
-        </main>
-      </article>
+       <article>
+         <main>
+          <div>
+            <fieldset id="register">
+              <legend>REGISTER </legend>
+              <legend>HERE</legend>
+              <div>
+                <label htmlFor="first-name">First Name : </label>
+                <input type="first-name" name="first-name" id="first-name" />
+              </div>
+              <div>
+                <label htmlFor="last name">Last Name : </label>
+                <input type="last name" name="last name" id="last name" />
+              </div>
+              <div>
+                <label htmlFor="email-address">Email : </label>
+                <input type="email" name="email-address" id="email-address" />
+              </div>
+              <div>
+                <label htmlFor="password">Password : </label>
+                <input type="password" name="password" id="password" />
+              </div>
+              <div>
+                <input type="submit" value="REGISTER" />
+              </div>
+            </fieldset>
+          </div>
+         </main>
+       </article>
     </div>
   );
  }
