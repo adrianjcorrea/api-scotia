@@ -16,6 +16,11 @@ class App extends Component {
        isSignedIn: false
     }
   }
+  //componentDidMount(){
+  //  fetch('https://mighty-refuge-81707.herokuapp.com/api//catalogs/cards')
+  //  .then(response => response.json)
+  //  .then(data => console.log(data))
+  //}
   //creating a function to be able to use my buttons to reroute. !!!testing tho!!!
   onRouteChange = (route) => {
     //Route property is in an object it need to be wrapped in curly brackets.
@@ -31,17 +36,19 @@ class App extends Component {
   }
 
   render() {
+    //destructured to cleaner code.
+   const {isSignedIn, route} = this.state;
     return (
       <div className="App-header">
-         < Navigation onRouteChange={this.onRouteChange} isSignedIn={this.state.isSignedIn} />
+         < Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn} />
          {/* !!!!Routing with conditionals!!!!
            If routing equals welcome return Welcome component*/}
           {/* Else if routing equals login return logIn component */}
             {/* Else return Register component */}
-         { this.state.route === 'welcome'
+         { route === 'welcome'
            ? < Welcome />
            :(
-             this.state.route === 'login'
+             route === 'login'
              ? < LogIn onRouteChange={this.onRouteChange}/>
              : < Register onRouteChange={this.onRouteChange} />
             )
