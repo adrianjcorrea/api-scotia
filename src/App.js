@@ -13,9 +13,34 @@ class App extends Component {
        //Created a route state to keep track on were im at in my app, We want it to start on our logIn page.
        route: 'login',
        //created a property for my nav to display either log out Or register and logIn.
-       isSignedIn: false
+       isSignedIn: false,
+         user: {
+           id: '',
+           email:'',
+           firstname:'',
+           lastname:''
+           //iat:'',
+           //entries: 0,
+           //joined: ''
+           //exp:''
+      }
     }
   }
+  //created function for 
+  loadUser = (data) => {
+  this.setState({user:{
+    id: data.id,
+    firstname: data.firstname,
+    lastname: data.lastname,
+    email: data.email
+    //iat:'',
+    //entries: data.entries,
+  //  joined: data.joined
+    //exp:''
+  }})
+}
+
+
   //componentDidMount(){
   //  fetch('https://mighty-refuge-81707.herokuapp.com/api//catalogs/cards')
   //  .then(response => response.json)
@@ -50,7 +75,7 @@ class App extends Component {
            :(
              route === 'login'
              ? < LogIn onRouteChange={this.onRouteChange}/>
-             : < Register onRouteChange={this.onRouteChange} />
+             : < Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
             )
           }
        </div>

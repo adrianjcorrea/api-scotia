@@ -15,6 +15,49 @@ constructor(props){
       password: ""
    }
  }
+
+
+ //created a function to listen to email onChange event.
+  onEmailChange = (event) => {
+    this.setState({email: event.target.value})
+  }
+ //created a function to listen to password onChange event.
+  onFirstChange = (event) => {
+    this.setState({firstname: event.target.value})
+  }
+
+  //created a function to listen to email onChange event.
+   onLastChange = (event) => {
+     this.setState({lastname: event.target.value})
+   }
+  //created a function to listen to password onChange event.
+   onPasswordChange = (event) => {
+     this.setState({password: event.target.value})
+   }
+
+   onSubmitLogIn = () => {
+     //fetch('https://mighty-refuge-81707.herokuapp.com/api/auth/user/create', {
+     fetch('http://localhost:8080/register', {
+       method: 'post',
+       headers: {'Content-Type': 'application/json'},
+       body: JSON.stringify({
+         firstname: this.state.firstname,
+         lastname:this.state.lastname,
+         email: this.state.email,
+         password: this.state.password
+
+       })
+     })
+       .then(response => response.json())
+       .then(user => {
+         if(user){
+           this.props.loadUser(user)
+         this.props.onRouteChange('login');
+         console.log(user);
+         }
+       })
+   }
+
 //we add our render method and our return for content to be displayed on app.
 render(){
   return(
@@ -27,24 +70,44 @@ render(){
               <legend>HERE</legend>
               <div>
                 <label htmlFor="email-address">Email : </label>
-                <input type="email" name="email" id="email-address" />
+                <input
+                 type="email"
+                 name="email"
+                 id="email-address"
+                 onChange={this.onEmailChange}
+                 />
               </div>
               <div>
                 <label htmlFor="first-name">First Name : </label>
-                <input type="first-name" name="first-name" id="first" />
+                <input
+                 type="first-name"
+                 name="first-name"
+                 id="first"
+                 onChange={this.onFirstChange}
+                 />
               </div>
               <div>
                 <label htmlFor="last name">Last Name : </label>
-                <input type="last-name" name="last-name" id="last" />
+                <input
+                 type="last-name"
+                 name="last-name"
+                 id="last"
+                 onChange={this.onLastChange}
+                 />
               </div>
 
               <div>
                 <label htmlFor="password">Password : </label>
-                <input type="password" name="password" id="password" />
+                <input
+                 type="password"
+                 name="password"
+                 id="password"
+                 onChange={this.onPasswordChange}
+                 />
               </div>
               <div>
                 <input
-                 onClick={() => this.props.onRouteChange('login')}
+                onClick={this.onSubmitLogIn}
                  className="B2"
                  type="submit"
                  value="REGISTER" />

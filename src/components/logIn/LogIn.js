@@ -29,12 +29,12 @@ constructor(props){
      method:'post',
      headers:{'Content-Type': 'application/json'},
      body: JSON.stringify({
-        email:this.state.signInEmail,
-        password:this.state.signInPassword
+        email:this.state.logInEmail,
+        password:this.state.logInPassword
      })
    })
 
-   .then(response => response.json)
+   .then(response => response.json())
    .then(data =>{
      if(data === 'success'){
        //console.log(this.state);
