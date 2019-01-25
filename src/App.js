@@ -26,7 +26,7 @@ class App extends Component {
       }
     }
   }
-  //created function for 
+  //created function for
   loadUser = (data) => {
   this.setState({user:{
     id: data.id,
@@ -64,21 +64,26 @@ class App extends Component {
     //destructured to cleaner code.
    const {isSignedIn, route} = this.state;
     return (
-      <div className="App-header">
+      <div>
          < Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn} />
-         {/* !!!!Routing with conditionals!!!!
-           If routing equals welcome return Welcome component*/}
-          {/* Else if routing equals login return logIn component */}
-            {/* Else return Register component */}
-         { route === 'welcome'
-           ? < Welcome />
-           :(
-             route === 'login'
-             ? < LogIn onRouteChange={this.onRouteChange}/>
-             : < Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
-            )
-          }
-       </div>
+
+           				<section >
+           					<div >
+                    {/* !!!!Routing with conditionals!!!!
+                      If routing equals welcome return Welcome component*/}
+                     {/* Else if routing equals login return logIn component */}
+                       {/* Else return Register component */}
+                    { route === 'welcome'
+                      ? < Welcome />
+                      :(
+                        route === 'login'
+                        ? < LogIn onRouteChange={this.onRouteChange}/>
+                        : < Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+                       )
+                     }
+           					</div>
+           				</section>
+    </div>
     );
   }
 }

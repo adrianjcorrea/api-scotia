@@ -62,60 +62,51 @@ constructor(props){
 render(){
   return(
     <div>
-       <article className="Register" >
-         <main className="field2">
-          <div>
-            <fieldset >
-              <legend>REGISTER </legend>
-              <legend>HERE</legend>
-              <div>
-                <label htmlFor="email-address">Email : </label>
+    <div className="center">
+      <div className="card">
+            <form>
+            <h1>Login</h1>
                 <input
-                 type="email"
-                 name="email"
-                 id="email-address"
-                 onChange={this.onEmailChange}
-                 />
-              </div>
-              <div>
-                <label htmlFor="first-name">First Name : </label>
+                  className="form-item"
+                  placeholder="email goes here..."
+                  type="email"
+                  name="email-address"
+                  id="email-address"
+                  onChange={this.onEmailChange}
+                />
                 <input
-                 type="first-name"
-                 name="first-name"
-                 id="first"
-                 onChange={this.onFirstChange}
-                 />
-              </div>
-              <div>
-                <label htmlFor="last name">Last Name : </label>
+                  className="form-item"
+                  placeholder="email goes here..."
+                  type="email"
+                  name="email-address"
+                  id="email-address"
+                  onChange={this.onEmailChange}
+                />
                 <input
-                 type="last-name"
-                 name="last-name"
-                 id="last"
-                 onChange={this.onLastChange}
-                 />
-              </div>
-
-              <div>
-                <label htmlFor="password">Password : </label>
+                  className="form-item"
+                  placeholder="email goes here..."
+                  type="email"
+                  name="email-address"
+                  id="email-address"
+                  onChange={this.onEmailChange}
+                />
                 <input
-                 type="password"
-                 name="password"
-                 id="password"
-                 onChange={this.onPasswordChange}
-                 />
-              </div>
-              <div>
+                  className="form-item"
+                  placeholder="Password goes here..."
+                  type="password"
+                  name="password"
+                  id="password"
+                  onChange={this.onPasswordChange}
+                />
                 <input
-                onClick={this.onSubmitLogIn}
-                 className="B2"
+                 onClick={this.onSubmitLogIn}
+                 className="form-submit"
                  type="submit"
-                 value="REGISTER" />
-              </div>
-            </fieldset>
-          </div>
-         </main>
-       </article>
+                 value="register"
+                  />
+            </form>
+        </div>
+    </div>
     </div>
   );
  }

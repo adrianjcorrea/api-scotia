@@ -1,13 +1,120 @@
-.App-link {
-  color: black;
+
+
+
+em {
+  color: #fff;
+  border: 2px solid black;
+  padding: 4px 20px 4px 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  display: inline-block;
 }
 
-a{
- margin-top: 100px;
- margin-right: 10px;
- margin-left: 10px;
-}
-p{
-  text-decoration: underline;
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  border: 3px solid black;
+  padding: 5px 20px 5px 20px;
+  padding: 25px 20px;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: inline-block;
   cursor:pointer;
+}
+/*fixin up my content */
+.clearfix:after {
+   visibility: hidden;
+   display: block;
+   font-size: 0;
+   content: " ";
+   clear: both;
+   height: 0;
+  }
+/* specifing styling for diffrent browsers so it whot show messi content in not supported browsers. */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;  }
+
+
+h2 {
+	font-family: 'Abril Fatface', serif;
+  font-size: 3rem;
+	text-align: center;
+	padding-top: 100px;
+	margin: 0 0 30px 0;
+}
+
+/* NAV SECTION */
+
+.Greatting {
+	float: left;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+	font-size: 1.8rem;
+	text-align: left;
+  /*variate between capitols and small letter */
+  font-variant: small-caps;
+	color: #fff;
+  background: rgba(0,0,0,0.7);
+	width: 45%;
+  height:100&;
+  padding: 18px 17px 28px 15%;
+  margin: 0;
+}
+
+nav {
+  background-color: rgba(0,0,0,0.7);
+	padding: 0;
+	margin: 0;
+	width: 55%;
+	float: left;
+}
+
+
+nav ul {
+	float: right;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	border-right: 20px solid rgba(0,0,0,0.7);
+}
+
+ul li {
+
+	float: right;
+	margin: 0;
+	display: inline;
+	width: 25%;
+	text-align: center;
+	background: rgba(0,0,0,0.7);
+}
+
+nav ul li:hover {
+	background: none;
+  font-style: bold;
+  transform: scale(1.2);
+}
+
+/* HEAD SECTION */
+
+@media (max-width:900px) {
+  .Greatting {
+
+    text-align: center;
+    padding: 10% 25%;
+  }
+
+ .mainNav {
+    width: 100%;
+  }
+
+   nav {
+    position: absolute;
+    margin-top: 20px;
+    border: none;
+  }
+
+
 }

@@ -9,34 +9,53 @@ const Navigation = ({onRouteChange, isSignedIn }) => {
   //If im signed in it will just display logOut in nav else it will display signIn and register.
  if(isSignedIn){
   return (
-   <nav>
-      <a
-      onClick={() => onRouteChange('login')}
-      className="App-link"
-      href="login">
-        LogOut
-      </a>
-   </nav>
+    <header>
+          <div className="navWrapper" id="home">
+            <div className=" clearfix">
+              <h2 className="Greatting">Welcome To Scotia Bank</h2>
+              <nav className="mainNav clearfix">
+                <ul>
+                  <li>
+                  <a  onClick={() => onRouteChange('login')}
+                    className="smoothScroll"
+                    href="login">
+                    logIn</a>
+                    </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </header>
   );
 }else{
   return(
-    <div>
-   <nav>
-      <a
-      onClick={() => onRouteChange('login')}
-      className="App-link"
-      href="login">
-       LogIn
-      </a>
-      {/*changed register to p tag due to with a wasnt letting me go to register form*/}
-       <p
-       onClick={() => onRouteChange('register')}
-       className="App-link"
-       href="register">
-        Register
-       </p>
-    </nav>
-    </div>
+    <header>
+  				<div className="navWrapper" id="home">
+  					<div className=" clearfix">
+  						<h2 className="Greatting">Welcome To Scotia Bank</h2>
+  						<nav className="mainNav clearfix">
+  							<ul>
+  								<li>
+                  <a  onClick={() => onRouteChange('login')}
+                    className="smoothScroll"
+                    href="login">
+                    logIn</a>
+                    </li>
+  								<li>
+                  <em>
+                  <h1 onClick={() => onRouteChange('register')}
+                    href="register"
+                    className="smoothScroll"
+                    >
+                    Register
+                    </h1>
+                    </em>
+                    </li>
+  							</ul>
+  						</nav>
+  					</div>
+  				</div>
+  			</header>
   );
  }
 }

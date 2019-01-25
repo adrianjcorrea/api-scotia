@@ -46,50 +46,43 @@ constructor(props){
 render(){
   //destructured to cleaner code.
   const {onRouteChange} = this.props;
-  return(
-    <div className="A1">
-       <article >
-         <main>
-           <div>
-            <fieldset className="Log">
-              <legend>Log In</legend>
-              <div>
-                <label htmlFor="email-address">Email : </label>
-                <input
-                  type="email"
-                  name="email-address"
-                  id="email-address"
-                  onChange={this.onEmailChange}
-                />
-              </div>
-              <div>
-                <label htmlFor="password">Password : </label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  onChange={this.onPasswordChange}
-                />
-              </div>
-              <div>
-                <input
-                 className="B1"
-                 onClick={this.onSubmitLogIn}
-                 type="submit"
-                 value="LogIn" />
-              </div>
-              <div>
-                <input
-                 onClick={() => onRouteChange('register')}
-                 className="B2"
-                 type="submit"
-                 value="register" />
-              </div>
-            </fieldset>
-           </div>
-         </main>
-       </article>
-    </div>
+          return(
+            <div className="center">
+              <div className="card">
+                  <h1 className="font">Login</h1>
+                    <form>
+                        <input
+                          className="form-item"
+                          placeholder="email goes here..."
+                          type="email"
+                          name="email-address"
+                          id="email-address"
+                          onChange={this.onEmailChange}
+                        />
+                        <input
+                          className="form-item"
+                          placeholder="Password goes here..."
+                          type="password"
+                          name="password"
+                          id="password"
+                          onChange={this.onPasswordChange}
+                        />
+                        <a
+                         className="form-submit"
+                         onClick={this.onSubmitLogIn}
+                         type="submit"
+                         value="LogIn" >
+                         logIn
+                         </a>
+                        <input
+                         onClick={() => onRouteChange('register')}
+                         className="form-submit"
+                         type="submit"
+                         value="register"
+                          />
+                    </form>
+                </div>
+            </div>
   );
  }
 }
