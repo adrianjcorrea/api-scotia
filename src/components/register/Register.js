@@ -65,9 +65,9 @@ render(){
     <div className="center">
       <div className="card">
             <form>
-            <h1>Login</h1>
+            <h1 className="font">Register</h1>
                 <input
-                  className="form-item"
+                  className="form-item2"
                   placeholder="email goes here..."
                   type="email"
                   name="email-address"
@@ -75,7 +75,7 @@ render(){
                   onChange={this.onEmailChange}
                 />
                 <input
-                  className="form-item"
+                  className="form-item2"
                   placeholder="email goes here..."
                   type="email"
                   name="email-address"
@@ -83,7 +83,7 @@ render(){
                   onChange={this.onEmailChange}
                 />
                 <input
-                  className="form-item"
+                  className="form-item2"
                   placeholder="email goes here..."
                   type="email"
                   name="email-address"
@@ -91,7 +91,7 @@ render(){
                   onChange={this.onEmailChange}
                 />
                 <input
-                  className="form-item"
+                  className="form-item2"
                   placeholder="Password goes here..."
                   type="password"
                   name="password"

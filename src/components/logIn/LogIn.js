@@ -67,13 +67,13 @@ render(){
                           id="password"
                           onChange={this.onPasswordChange}
                         />
-                        <a
+                        <input
                          className="form-submit"
                          onClick={this.onSubmitLogIn}
                          type="submit"
-                         value="LogIn" >
-                         logIn
-                         </a>
+                         value="LogIn"
+                         />
+
                         <input
                          onClick={() => onRouteChange('register')}
                          className="form-submit"

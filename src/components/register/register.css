@@ -1,20 +1,67 @@
-.field2{
-  background-color: rgba(0,0,60,0.2);
-  
-}
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
-.Register{
+.font{
   text-align: center;
+  /* fist pixel for side(horizontal) shadow
+     second: Vertical shadow
+     Third : oppacity of shadow */
+  text-shadow: 1px 0 20px #595859;
+  /* REM is just 88px */
+  font-size: 5.5rem;
+  /*padding: Possition away from other items/content. */
+	padding-top: 80px;
+  padding-bottom: 20px;
+  margin-top: 0;
+  margin-bottom: 10px;
+	font-family: 'Abril Fatface', serif;
+	color: yellow;
+}
+.center{
+  /*pertaining to form pasitioning */
+    position: center;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#email-address{
-  margin-right: -53px;
+.card{
+  /*pertaining to form styling */
+    background-color: #fff;
+    /* shaping of form */
+    border-radius: 15px;
+    /*padding of inside content */
+    padding: 1.5rem;
 }
 
-#last{
-  margin-right: -2px;
+.card > form{
+    /*adjusting our flexible content */
+    display: flex;
+    flex-direction: column;
 }
 
-#password{
-  margin-right: -11px;
+
+.form-item2{
+  /*input boxes */
+  position: center;
+    font-family: 'Raleway', sans-serif;
+    padding: 5px;
+    margin-bottom: 1rem;
+    height: 30px;
+    width: 20rem;
+    border: 1-5px solid grey;
+}
+
+.form-submit{
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    height: 35px;
+    color: #fff;
+    background-color: #1abc9c;
+    border: none;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+}
+.form-submit:hover{
+   opacity: 0.6;
 }

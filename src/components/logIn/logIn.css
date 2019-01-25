@@ -54,13 +54,16 @@
 .form-submit{
     text-align: center;
     font-family: 'Raleway', sans-serif;
-    height: 35px;
     color: #fff;
     background-color: #1abc9c;
+    background-size: 10px;
     border: none;
+    margin-bottom: 10px;
     letter-spacing: 0.2rem;
     cursor: pointer;
 }
-.form-submit:hover{
+
+.form-submit:hover {
    opacity: 0.6;
+
 }
