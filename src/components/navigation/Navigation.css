@@ -58,7 +58,6 @@ h2 {
 	color: #fff;
   background: rgba(0,0,0,0.7);
 	width: 45%;
-  height:100&;
   padding: 18px 17px 28px 15%;
   margin: 0;
 }
@@ -100,21 +99,41 @@ nav ul li:hover {
 /* HEAD SECTION */
 
 @media (max-width:900px) {
-  .Greatting {
 
-    text-align: center;
-    padding: 10% 25%;
-  }
-
- .mainNav {
-    width: 100%;
-  }
+  .mainNav {
+     width: 97%;
+     margin-right: 5px;
+   }
 
    nav {
     position: absolute;
-    margin-top: 20px;
+    margin-top: 160px;
     border: none;
+
+  }
+  .Greatting {
+    margin-top: 0px;
+    margin-bottom: 100px;
+    width:100%;
+    height:150px;
+    text-align: center;
+    padding: 10% 25%;
+  }
+  h2 {
+  	font-family: 'Abril Fatface', serif;
+    font-size: 35px;
+  	text-align: center;
+    display: inline-block;
   }
 
+  ul li {
+
+  	float: center;
+  	margin: 0;
+  	display: inline;
+  	width: 50%;
+  	text-align: center;
+  	background: rgba(0,0,0,0.7);
+  }
 
 }
