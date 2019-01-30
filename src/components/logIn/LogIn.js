@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import './logIn.css';
+var jwtDecode = require('jwt-decode');
+
+
 //accentialy the same as Register just some minor changes.
 //since this component has a state therefore making it a smart component.
 class LogIn extends Component{
@@ -23,6 +26,10 @@ constructor(props){
    this.setState({logInPassword: event.target.value})
  }
 
+ setToken(idToken) {
+  // Saves user token to localStorage
+  localStorage.setItem('id_token', idToken)
+}
 
  onSubmitLogIn = () => {
    fetch('http://localhost:8888/logIn',{
@@ -36,10 +43,16 @@ constructor(props){
 
    .then(response => response.json())
    .then(data =>{
-     if(data){
-       console.log(data)
-       this.props.onRouteChange('welcome');
+     //Promise.resolve(data);
+     if(data === 'error logging in'){
+      console.log('error logging in');
+     }else if(data){
+      console.log(data)
+      this.props.onRouteChange('welcome');
+      this.setToken(data.token)
+      return Promise.resolve(data);
      }
+     
    })
   }
 //we add our render method and our return for content to be displayed on app.
