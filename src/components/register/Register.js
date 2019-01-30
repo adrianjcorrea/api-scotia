@@ -37,7 +37,7 @@ constructor(props){
 
    onSubmitLogIn = () => {
      //fetch('https://mighty-refuge-81707.herokuapp.com/api/auth/user/create', {
-     fetch('http://localhost:8080/register', {
+     fetch('http://localhost:8888/register', {
        method: 'post',
        headers: {'Content-Type': 'application/json'},
        body: JSON.stringify({

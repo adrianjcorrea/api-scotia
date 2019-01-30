@@ -25,7 +25,7 @@ constructor(props){
 
 
  onSubmitLogIn = () => {
-   fetch('http://localhost:8080/logIn',{
+   fetch('http://localhost:8888/logIn',{
      method:'post',
      headers:{'Content-Type': 'application/json'},
      body: JSON.stringify({
@@ -36,8 +36,8 @@ constructor(props){
 
    .then(response => response.json())
    .then(data =>{
-     if(data === 'success'){
-       //console.log(this.state);
+     if(data){
+       console.log(data)
        this.props.onRouteChange('welcome');
      }
    })
@@ -67,12 +67,13 @@ render(){
                           id="password"
                           onChange={this.onPasswordChange}
                         />
-                        <input
+                        <p
                          className="form-submit"
                          onClick={this.onSubmitLogIn}
                          type="submit"
                          value="LogIn"
-                         />
+                         >logIn
+                         </p>
 
                         <input
                          onClick={() => onRouteChange('register')}
