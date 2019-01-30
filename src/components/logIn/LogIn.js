@@ -25,10 +25,38 @@ constructor(props){
  onPasswordChange = (event) => {
    this.setState({logInPassword: event.target.value})
  }
+ isTokenExpired(token) {
+  try {
+      const decoded = jwtDecode(token);
+      if (decoded.exp < Date.now() / 1000) { // Checking if token is expired. N
+          return true;
+      }
+      else
+          return false;
+  }
+  catch (err) {
+      return false;
+  }
+}
+
+
+loggedIn() {
+  // Checks if there is a saved token and it's still valid
+  return !!this.getToken && !this.isTokenExpired(this.getToken) // handwaiving here
+}
 
  setToken(idToken) {
   // Saves user token to localStorage
   localStorage.setItem('id_token', idToken)
+ }
+
+getToken() {
+     // Retrieves the user token from localStorage
+     return localStorage.getItem('id_token')
+ }
+ getProfile() {
+   // Using jwt-decode npm package to decode the token
+   return jwtDecode(this.getToken());
 }
 
  onSubmitLogIn = () => {
@@ -49,11 +77,14 @@ constructor(props){
      }else if(data){
       console.log(data)
       this.props.onRouteChange('welcome');
-      this.setToken(data.token)
-      return Promise.resolve(data);
+      const token = data.token;
+      this.setToken(token)
+      return Promise.resolve(token);
      }
      
    })
+   console.log(this.getProfile());
+
   }
 //we add our render method and our return for content to be displayed on app.
 render(){
