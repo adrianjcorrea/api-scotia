@@ -50,19 +50,23 @@ loggedIn() {
   localStorage.setItem('id_token', idToken)
  }
 
+
 getToken() {
      // Retrieves the user token from localStorage
      return localStorage.getItem('id_token')
  }
  getProfile() {
    // Using jwt-decode npm package to decode the token
-   return jwtDecode(this.getToken());
+    return jwtDecode(this.getToken());
 }
 
  onSubmitLogIn = () => {
    fetch('http://localhost:8888/logIn',{
      method:'post',
-     headers:{'Content-Type': 'application/json'},
+     headers:{
+       'Content-Type': 'application/json'
+       //'Authorization': 'Bearer' + this.getToken()
+         },
      body: JSON.stringify({
         email:this.state.logInEmail,
         password:this.state.logInPassword
@@ -81,10 +85,11 @@ getToken() {
       this.setToken(token)
       return Promise.resolve(token);
      }
-     
-   })
-   console.log(this.getProfile());
 
+   })
+   const hi = this.getProfile()
+   console.log(hi);
+   localStorage.setItem('id', JSON.stringify(hi))
   }
 //we add our render method and our return for content to be displayed on app.
 render(){
