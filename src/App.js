@@ -5,6 +5,8 @@ import Navigation from './components/navigation/Navigation.js';
 import LogIn from './components/logIn/LogIn.js';
 import Register from './components/register/Register.js';
 import Welcome from './components/welcome/Welcome.js';
+import AddAccount from './components/addAccount/AddAccount.js';
+
 
 class App extends Component {
   constructor(){
@@ -78,7 +80,9 @@ class App extends Component {
                       :(
                         route === 'login'
                         ? < LogIn onRouteChange={this.onRouteChange}/>
-                        : < Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+                        : route === 'register'
+                        ? < Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+                        : < AddAccount loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
                        )
                      }
            					</div>

@@ -47,13 +47,28 @@ loggedIn() {
 
  setToken(idToken) {
   // Saves user token to localStorage
-  localStorage.setItem('id_token', idToken)
+  localStorage.setItem('id_token', idToken);
  }
 
+ setId(){
+   //const load = this.getProfile()
+   //localStorage.setItem('payload',JSON.stringify(load));
+   const obj1 = [];
+   const hi = this.getProfile();
+   obj1.push(hi);
+   var id = obj1[0].id;
+   localStorage.setItem('_id', id)
+ }
+
+getId(){
+   return localStorage.getItem('_id');
+
+
+}
 
 getToken() {
      // Retrieves the user token from localStorage
-     return localStorage.getItem('id_token')
+     return localStorage.getItem('id_token');
  }
  getProfile() {
    // Using jwt-decode npm package to decode the token
@@ -80,16 +95,15 @@ getToken() {
       console.log('error logging in');
      }else if(data){
       console.log(data)
-      this.props.onRouteChange('welcome');
       const token = data.token;
       this.setToken(token)
+      this.setId();
+      this.props.onRouteChange('welcome');
       return Promise.resolve(token);
+
      }
 
    })
-   const hi = this.getProfile()
-   console.log(hi);
-   localStorage.setItem('id', JSON.stringify(hi))
   }
 //we add our render method and our return for content to be displayed on app.
 render(){

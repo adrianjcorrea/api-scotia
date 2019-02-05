@@ -19,7 +19,17 @@ const Navigation = ({onRouteChange, isSignedIn }) => {
                   <a  onClick={() => onRouteChange('login')}
                     className="smoothScroll"
                     href="login">
-                    logIn</a>
+                    logOut</a>
+                    </li>
+                  <li>
+                  <em>
+                  <h1 onClick={() => onRouteChange('AddAccount')}
+                    href="AddAccount"
+                    className="smoothScroll"
+                    >
+                    addAccount
+                    </h1>
+                    </em>
                     </li>
                 </ul>
               </nav>
