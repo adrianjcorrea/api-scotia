@@ -1,102 +1,125 @@
 import React from 'react';
 import '../register/register.css';
-//added a simple home page for once loggedIn, LLater I will modify.
+import all from '../authentify/AuthToken.js';
+
+//since this component has a state that will change therefore making it a smart component.
 class AddAccount extends React.Component{
 
   constructor(props){
     super(props);
-  //will have a state of empty strings in our Register form for our input fields.
-  //Email, FirstName, LastName and Password.
+  //will have a state of empty strings in our addAccount form for our input fields.
+  //Id, type and card name.
      this.state = {
-        email: "",
-        firstname: "",
-        lastname: "",
-        password: ""
-     }
+        userId: "",
+         type_cards:{
+        type: "",
+        name: ""
+      }
+   }
+ }
+   componentDidMount() {
+     //fetch('https://mighty-refuge-81707.herokuapp.com/api//catalogs/cards',{
+     fetch('https://mighty-refuge-81707.herokuapp.com/api/accounts', {
+        method:'get',
+        headers:{
+          'Content-Type': 'application/json',
+          'X-access-token': all.getToken()
+        }
+      })
+
+     .then(response => response.json())
+     .then(data =>{
+        console.log(data)
+     })
    }
 
-
-   //created a function to listen to email onChange event.
-    onEmailChange = (event) => {
-      this.setState({email: event.target.value})
+   //created a function to listen to Id change.
+   onSetIdChange = (event) => {
+     this.setState({userId: event.target.value})
+   }
+   //created a function to listen to card type change.
+    onTypeCardChange = (event) => {
+      this.setState({type: event.target.value})
     }
-   //created a function to listen to password onChange event.
-    onFirstChange = (event) => {
-      this.setState({firstname: event.target.value})
-    }
 
-    //created a function to listen to email onChange event.
-     onLastChange = (event) => {
-       this.setState({lastname: event.target.value})
-     }
-    //created a function to listen to password onChange event.
-     onPasswordChange = (event) => {
-       this.setState({password: event.target.value})
+    //created a function to listen to card name Change event.
+     onTypeCardNameChange = (event) => {
+       this.setState({name: event.target.value})
      }
 
-     onSubmitLogIn = () => {
-       //fetch('https://mighty-refuge-81707.herokuapp.com/api/auth/user/create', {
-       fetch('http://localhost:8888/register', {
-         method: 'post',
-         headers: {'Content-Type': 'application/json'},
-         body: JSON.stringify({
-           firstname: this.state.firstname,
-           lastname:this.state.lastname,
-           email: this.state.email,
-           password: this.state.password
+       onSubmitAccount = () => {
+         fetch('https://mighty-refuge-81707.herokuapp.com/api/accounts', {
+           method: 'post',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-access-token': all.getToken()
+                    },
+            body: JSON.stringify({
+              userId: all.getId(),
+              type: this.state.type,
+              name: this.state.name
 
-         })
-       })
-         .then(response => response.json())
-         .then(user => {
-           if(user){
-             this.props.loadUser(user)
-           this.props.onRouteChange('welcome');
-           console.log(user);
-           }
-         })
-     }
-     render(){
+            })
+          })
+          .then(response => response.json())
+          .then(type_cards => {
+            if(type_cards){
+              this.loadAccount(type_cards)
+              this.props.onRouteChange('catalogs');
+              console.log(type_cards)
+
+            }
+          })
+        }
+
+
+
+
+
+      loadAccount = (data) => {
+      this.setState({
+        userId: all.getId(),
+        type_cards:[
+          {
+         type: data.type,
+         name: data.name
+      }
+      ]
+    })
+}
+
+
+   render(){
   return (
     <div>
     <div className="center">
       <div className="card">
             <form>
-            <h1 className="font">Register</h1>
+            <h1 className="font">ADD ACCOUNT</h1>
+                <input
+                  className="form-item2"
+                  placeholder="type goes here..."
+                  type="email"
+                  name="email-address"
+                  onChange={this.onTypeCardChange}
+                />
+                <input
+                  className="form-item2"
+                  placeholder="name goes here..."
+                  type="email"
+                  name="email-address"
+                  onChange={this.onTypeCardNameChange}
+                />
                 <input
                   className="form-item2"
                   placeholder="email goes here..."
                   type="email"
                   name="email-address"
-                  id="email-address"
-                  onChange={this.onEmailChange}
+                  onChange={this.onSetIdChange}
                 />
-                <input
-                  className="form-item2"
-                  placeholder="email goes here..."
-                  type="email"
-                  name="email-address"
-                  id="email-address"
-                  onChange={this.onEmailChange}
-                />
-                <input
-                  className="form-item2"
-                  placeholder="email goes here..."
-                  type="email"
-                  name="email-address"
-                  id="email-address"
-                  onChange={this.onEmailChange}
-                />
-                <input
-                  className="form-item2"
-                  placeholder="Password goes here..."
-                  type="password"
-                  name="password"
-                  id="password"
-                  onChange={this.onPasswordChange}
-                />
+
                 <p
-                 onClick={this.onSubmitLogIn}
+                 onClick={this.onSubmitAccount}
                  className="form-submit"
                  type="submit"
                  value="register"

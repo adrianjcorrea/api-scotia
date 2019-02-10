@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './logIn.css';
-var jwtDecode = require('jwt-decode');
+import all from '../authentify/AuthToken.js';
 
 
 //accentialy the same as Register just some minor changes.
@@ -25,62 +25,13 @@ constructor(props){
  onPasswordChange = (event) => {
    this.setState({logInPassword: event.target.value})
  }
- isTokenExpired(token) {
-  try {
-      const decoded = jwtDecode(token);
-      if (decoded.exp < Date.now() / 1000) { // Checking if token is expired. N
-          return true;
-      }
-      else
-          return false;
-  }
-  catch (err) {
-      return false;
-  }
-}
-
-
-loggedIn() {
-  // Checks if there is a saved token and it's still valid
-  return !!this.getToken && !this.isTokenExpired(this.getToken) // handwaiving here
-}
-
- setToken(idToken) {
-  // Saves user token to localStorage
-  localStorage.setItem('id_token', idToken);
- }
-
- setId(){
-   //const load = this.getProfile()
-   //localStorage.setItem('payload',JSON.stringify(load));
-   const obj1 = [];
-   const hi = this.getProfile();
-   obj1.push(hi);
-   var id = obj1[0].id;
-   localStorage.setItem('_id', id)
- }
-
-getId(){
-   return localStorage.getItem('_id');
-
-
-}
-
-getToken() {
-     // Retrieves the user token from localStorage
-     return localStorage.getItem('id_token');
- }
- getProfile() {
-   // Using jwt-decode npm package to decode the token
-    return jwtDecode(this.getToken());
-}
 
  onSubmitLogIn = () => {
-   fetch('http://localhost:8888/logIn',{
+   fetch('https://mighty-refuge-81707.herokuapp.com/api/auth/user/authenticate',{
      method:'post',
      headers:{
        'Content-Type': 'application/json'
-       //'Authorization': 'Bearer' + this.getToken()
+       //'Authorization': 'Bearer' + all.getToken()
          },
      body: JSON.stringify({
         email:this.state.logInEmail,
@@ -91,14 +42,18 @@ getToken() {
    .then(response => response.json())
    .then(data =>{
      //Promise.resolve(data);
-     if(data === 'error logging in'){
+     if(data === {
+    "error": "Contraseña incorrecta"
+      }){
       console.log('error logging in');
      }else if(data){
       console.log(data)
       const token = data.token;
-      this.setToken(token)
-      this.setId();
-      this.props.onRouteChange('welcome');
+      all.setToken(token)
+      all.setId();
+      console.log(all.getToken())
+      console.log(all.getProfile())
+      this.props.onRouteChange('catalogs');
       return Promise.resolve(token);
 
      }
@@ -121,6 +76,7 @@ render(){
                           name="email-address"
                           id="email-address"
                           onChange={this.onEmailChange}
+
                         />
                         <input
                           className="form-item"
@@ -129,6 +85,7 @@ render(){
                           name="password"
                           id="password"
                           onChange={this.onPasswordChange}
+
                         />
                         <p
                          className="form-submit"

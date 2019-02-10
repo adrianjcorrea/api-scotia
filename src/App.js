@@ -4,7 +4,7 @@ import './css/App.css';
 import Navigation from './components/navigation/Navigation.js';
 import LogIn from './components/logIn/LogIn.js';
 import Register from './components/register/Register.js';
-import Welcome from './components/welcome/Welcome.js';
+import Catalogs from './components/catalogs/Catalogs.js';
 import AddAccount from './components/addAccount/AddAccount.js';
 
 
@@ -21,10 +21,7 @@ class App extends Component {
            email:'',
            firstname:'',
            lastname:''
-           //iat:'',
-           //entries: 0,
-           //joined: ''
-           //exp:''
+
       }
     }
   }
@@ -35,19 +32,13 @@ class App extends Component {
     firstname: data.firstname,
     lastname: data.lastname,
     email: data.email
-    //iat:'',
-    //entries: data.entries,
-  //  joined: data.joined
-    //exp:''
+
   }})
 }
 
 
-  //componentDidMount(){
-  //  fetch('https://mighty-refuge-81707.herokuapp.com/api//catalogs/cards')
-  //  .then(response => response.json)
-  //  .then(data => console.log(data))
-  //}
+
+
   //creating a function to be able to use my buttons to reroute. !!!testing tho!!!
   onRouteChange = (route) => {
     //Route property is in an object it need to be wrapped in curly brackets.
@@ -55,7 +46,7 @@ class App extends Component {
     if(route === 'logIn'){
       this.setState({isSignedIn: false});
       //But if its welcome then it will display logOut on nav.
-    }else if(route === 'welcome'){
+    }else if(route === 'catalogs' || route === 'AddAccount' ){
       this.setState({isSignedIn: true});
     }
     //setting state to reasigned route to route given on onClick function
@@ -68,18 +59,17 @@ class App extends Component {
     return (
       <div>
          < Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn} />
-
-           				<section >
+                	<section >
            					<div >
                     {/* !!!!Routing with conditionals!!!!
-                      If routing equals welcome return Welcome component*/}
+                      If routing equals catalogs return catalogs component*/}
                      {/* Else if routing equals login return logIn component */}
                        {/* Else return Register component */}
-                    { route === 'welcome'
-                      ? < Welcome />
+                    { route === 'catalogs'
+                      ? < Catalogs onRouteChange={this.onRouteChange}/>
                       :(
                         route === 'login'
-                        ? < LogIn onRouteChange={this.onRouteChange}/>
+                        ? < LogIn onRouteChange={this.onRouteChange} />
                         : route === 'register'
                         ? < Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
                         : < AddAccount loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
@@ -87,7 +77,7 @@ class App extends Component {
                      }
            					</div>
            				</section>
-    </div>
+       </div>
     );
   }
 }

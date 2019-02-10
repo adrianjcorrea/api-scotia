@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './register.css';
-//since this component has a state therefore making it a smart component.
+//since this component has a state that will change therefore making it a smart component.
 class Register extends Component{
 //addind the constructor and super functions.
-//Plus we will be using props so might aswell pass them in to our functions.
+//Plus we will be using props to use app.js functions.
 constructor(props){
   super(props);
 //will have a state of empty strings in our Register form for our input fields.
@@ -21,12 +21,12 @@ constructor(props){
   onEmailChange = (event) => {
     this.setState({email: event.target.value})
   }
- //created a function to listen to password onChange event.
+ //created a function to listen to firstname onChange event.
   onFirstChange = (event) => {
     this.setState({firstname: event.target.value})
   }
 
-  //created a function to listen to email onChange event.
+  //created a function to listen to lastname onChange event.
    onLastChange = (event) => {
      this.setState({lastname: event.target.value})
    }
@@ -36,8 +36,7 @@ constructor(props){
    }
 
    onSubmitLogIn = () => {
-     //fetch('https://mighty-refuge-81707.herokuapp.com/api/auth/user/create', {
-     fetch('http://localhost:8888/register', {
+     fetch('https://mighty-refuge-81707.herokuapp.com/api/auth/user/create', {
        method: 'post',
        headers: {'Content-Type': 'application/json'},
        body: JSON.stringify({
@@ -76,19 +75,18 @@ render(){
                 />
                 <input
                   className="form-item2"
-                  placeholder="email goes here..."
-                  type="email"
-                  name="email-address"
-                  id="email-address"
-                  onChange={this.onEmailChange}
+                  placeholder="First Name ..."
+                  type="name"
+                  name="firstname"
+                  onChange={this.onFirstChange}
                 />
                 <input
                   className="form-item2"
-                  placeholder="email goes here..."
-                  type="email"
-                  name="email-address"
+                  placeholder="Last Name here..."
+                  type="name"
+                  name="last-name"
                   id="email-address"
-                  onChange={this.onEmailChange}
+                  onChange={this.onLastChange}
                 />
                 <input
                   className="form-item2"
