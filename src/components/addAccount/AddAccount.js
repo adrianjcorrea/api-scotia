@@ -17,6 +17,7 @@ class AddAccount extends React.Component{
       }
    }
  }
+
    componentDidMount() {
      //fetch('https://mighty-refuge-81707.herokuapp.com/api//catalogs/cards',{
      fetch('https://mighty-refuge-81707.herokuapp.com/api/accounts', {
@@ -98,23 +99,23 @@ class AddAccount extends React.Component{
             <h1 className="font">ADD ACCOUNT</h1>
                 <input
                   className="form-item2"
-                  placeholder="type goes here..."
+                  placeholder="type of card ..."
                   type="email"
-                  name="email-address"
+                  name="type card"
                   onChange={this.onTypeCardChange}
                 />
                 <input
                   className="form-item2"
-                  placeholder="name goes here..."
-                  type="email"
-                  name="email-address"
+                  placeholder="name of card..."
+                  type=""
+                  name="card name"
                   onChange={this.onTypeCardNameChange}
                 />
                 <input
                   className="form-item2"
-                  placeholder="email goes here..."
-                  type="email"
-                  name="email-address"
+                  placeholder="ID..."
+                  type=""
+                  name="id"
                   onChange={this.onSetIdChange}
                 />
 
