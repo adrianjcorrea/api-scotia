@@ -55,29 +55,27 @@ class App extends Component {
 
   render() {
     //destructured to cleaner code.
-   const {isSignedIn, route} = this.state;
+    const {isSignedIn, route} = this.state;
     return (
       <div>
-         < Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn} />
-                	<section >
-           					<div >
-                    {/* !!!!Routing with conditionals!!!!
-                      If routing equals catalogs return catalogs component*/}
-                     {/* Else if routing equals login return logIn component */}
-                       {/* Else return Register component */}
-                    { route === 'catalogs'
-                      ? < Catalogs onRouteChange={this.onRouteChange}/>
-                      :(
-                        route === 'login'
-                        ? < LogIn onRouteChange={this.onRouteChange} />
-                        : route === 'register'
-                        ? < Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
-                        : < AddAccount loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
-                       )
-                     }
-           					</div>
-           				</section>
-       </div>
+        < Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn} />
+        <section >
+          <div >
+            {/* !!!!Routing with conditionals!!!!
+            If routing equals catalogs return catalogs component*/}
+            {/* Else if routing equals login return logIn component */}
+            {/* Else return Register component */}
+            { route === 'catalogs'
+              ? < Catalogs onRouteChange={this.onRouteChange}/>
+              :( route === 'login'
+              ? < LogIn onRouteChange={this.onRouteChange} />
+              : route === 'register'
+              ? < Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+              : < AddAccount loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+            )}
+          </div>
+        </section>
+      </div>
     );
   }
 }
